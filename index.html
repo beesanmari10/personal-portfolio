@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>porftfolio 3</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bisan Mar'i Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f7f2ec;
+      color: #5a3e36;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      /* Removed padding-top because nav overlays header now */
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navigation bar */
+    nav.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(90, 62, 54, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      box-shadow: none;
+      z-index: 9999;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #5a3e36;
+      font-size: 0.9rem; /* smaller font for nav items and name */
+    }
+    nav.navbar .logo {
+      cursor: default;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    nav.navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    nav.navbar ul li a {
+      transition: color 0.3s ease;
+    }
+    nav.navbar ul li a:hover {
+      color: #8a5c4d;
+    }
+
+    /* Header with Michelangelo background */
+    header.site-header {
+      position: relative;
+      height: 750px;
+      background: url('https://cdn.hercampus.com/SH6M70M3/as/mmvbr9bt4hrhxn89qbhhk49n/adriannageo1rbg5ysi00cunsplashjpg_by_Adrianna_Geo?width=719&height=464&fit=crop&auto=webp&dpr=4') top center/cover no-repeat;
+      border-radius: 0 0 30px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4rem;
+      color: white;
+      overflow: hidden;
+      margin-top: 0; /* no margin so it starts at top */
+      z-index: 1;
+    }
+    header.site-header::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, #f7f2ec);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Left header text */
+    .header-left {
+      position: relative;
+      z-index: 3;
+      max-width: 40%;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .header-left .creative {
+      font-family: 'anton', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .header-left .designer-developer {
+      font-family: 'Anton', sans-serif;
+      font-size: 3.8rem;
+      line-height: 1.1;
+      letter-spacing: 2px;
+    }
+
+    /* Right header text */
+    .header-right {
+      position: relative;
+      max-width: 50%;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      z-index: 3;
+    }
+    .header-right strong {
+      font-weight: 900;
+      color: #ffd9b3;
+    }
+
+    /* Main sections */
+    main {
+      max-width: 1100px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      z-index: 3;
+    }
+    section {
+      background: #fdf6f0;
+      margin-bottom: 3rem;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(90, 62, 54, 0.1);
+    }
+    section h2 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: #8a5c4d;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    section p {
+      color: #6f4f3f;
+      font-size: 1.05rem;
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: #f9f0e7;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(138, 92, 77, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 38px rgba(138, 92, 77, 0.3);
+    }
+    .project-image {
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px solid #d8bfa7;
+      filter: drop-shadow(1px 1px 3px rgba(170, 125, 95, 0.35));
+    }
+    .project-content {
+      padding: 1.2rem 1.4rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: #8a5c4d;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+    .project-description {
+      flex-grow: 1;
+      color: #6f4f3f;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 1.3rem;
+    }
+    .project-link {
+      align-self: flex-start;
+      background: #cbb59c;
+      color: #5a3e36;
+      font-weight: 700;
+      border-radius: 0 0 18px 18px;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s ease;
+    }
+    .project-link:hover {
+      background: #bba584;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: #d9cbbd;
+      color: #5a3e36;
+      padding: 1.3rem 1rem;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      font-family: 'Inter', sans-serif;
+      box-shadow: inset 0 2px 10px rgba(90, 62, 54, 0.1);
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header.site-header {
+        flex-direction: column;
+        height: auto;
+        padding: 3rem 2rem 4rem;
+        text-align: center;
+      }
+      .header-left, .header-right {
+        max-width: 100%;
+        font-size: initial;
+      }
+      .header-left .creative {
+        font-size: 1.3rem;
+      }
+      .header-left .designer-developer {
+        font-size: 2.8rem;
+      }
+      .header-right {
+        margin-top: 1rem;
+        font-size: 1.1rem;
+      }
+      nav.navbar {
+        padding: 0 1rem;
+      }
+      nav.navbar ul {
+        display: none; /* hide nav links on smaller screens for now */
+      }
+    }
+    @media (max-width: 450px) {
+      .header-left .creative {
+        font-size: 1.1rem;
+      }
+      .header-left .designer-developer {
+        font-size: 2.1rem;
+      }
+      .header-right {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+    <div class="logo">Beesan Mari</div>
+    <ul>
+      <li><a href="#about-me">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <div class="creative">Creative</div>
+      <div class="designer-developer">Designer and Developer</div>
+    </div>
+    <div class="header-right">
+      A CURIOUS SOUL BLENDING <strong>ARCHITECTURE &amp; CODE</strong><br />TO SHAPE A SMARTER WORLD.
+    </div>
+  </header>
+
+  <main>
+    <section id="about-me" class="section" tabindex="0">
+      <h2>About Me</h2>
+      <p>
+        I am an architectural engineer passionate about digital tools and software engineering.
+        My journey started with architecture, but my curiosity has led me to explore programming and development to build creative solutions that merge design and technology.
+      </p>
+    </section>
+
+    <section id="projects" class="section" tabindex="0">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Architecture Portfolio Screenshot" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Architecture Portfolio Website</h3>
+            <p class="project-description">An online showcase of my architectural projects highlighting design, visualization, and technical skills.</p>
+            <a href="https://beesanmari10.wixstudio.com/my-site" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Accounting Firm Website Screenshot" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Accounting Firm Website</h3>
+            <p class="project-description">A clean and professional site designed for a financial consulting business, showcasing services and contact info.</p>
+            <a href="https://codepen.io/qjwomwgh-the-bashful/pen/wBKMqpO" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+          </div>
+        </article>
+         <article class="project-card">
+          <img src="https://www.learningaboutelectronics.com/images/Guess-a-number-from-1-to-10.png" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Python Calculator & Guessing Game</h3>
+            <p class="project-description">Built using Python logic on Replit. Interactive CLI programs demonstrating basic conditionals and loops.</p>
+            <a href="https://replit.com/@1170511" target="_blank" class="project-link" rel="noopener noreferrer">View on Replit</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section" tabindex="0">
+      <h2>Contact</h2>
+      <p>You can reach me via email at <a href="mailto:beesanmari@icloud.com">beesanmari@icloud.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    &copy; 2025 Beesan Mari — All rights reserved.
+  </footer>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
